@@ -7,20 +7,23 @@ Includes Google Sign-In SDK v4.0.0
 #### Automatic
 
 - link the lib with `react-native link react-native-google-signin`
-- install the Google Signin SDK with [CocoaPods](https://cocoapods.org/) (add `pod 'Google/SignIn'` in your Podfile and run `pod install`)
+- install the Google Signin SDK with [CocoaPods](https://cocoapods.org/) (add `pod 'GoogleSignIn'` in your Podfile and run `pod install`). 
+First time using cocoapods ? [check this out](./how-cocoapods.md)
+
 
 #### Manual
 
+if you did `react-native link react-native-google-signin` the first two steps are not necessary
+
 - add `ios/RNGoogleSignin.xcodeproj` to your xcode project
 - In your project build phase -> `Link binary with libraries` step, add `libRNGoogleSignin.a`, `AddressBook.framework`, `SafariServices.framework`, `SystemConfiguration.framework` and `libz.tbd`
-- Drag and drop the `ios/GoogleSdk` folder to your xcode project. (Make sure `Copy items if needed` **IS** ticked) 
+- Drag and drop all files from `<root_project_dir>/node_modules/react-native-google-signin/ios/GoogleSdk` directory that end with `.framework` into the Frameworks group of application (Make sure `Copy items if needed` **IS** ticked)
+- Go to `Build Settings` and add to `Framework Search Paths` path to GoogleSdk: by default `$(PROJECT_DIR)/../node_modules/react-native-google-signin/ios/GoogleSdk`
 
 
 ### 2. Google project configuration
 
-- Open [https://developers.google.com/identity/sign-in/ios/sdk/](https://developers.google.com/identity/sign-in/ios/sdk/)
-
-- Scroll down and click ```Get a configuration file``` button
+- Follow [this](./get-config-file.md) guide to get the configuration file.
 
 - Download the ```GoogleService-Info.plist``` file at the end of the process
 
